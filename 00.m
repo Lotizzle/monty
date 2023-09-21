@@ -14,7 +14,8 @@ push 4
     push 55   
         push 63       
       
-swap
+add
+add
 pall
 
 

@@ -39,6 +39,7 @@ typedef struct instruction_s
 	void (*f)(monty_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* functions1 */
 void free_stack(monty_stack_t *stack);
 void execute(monty_stack_t **stack, char *token, unsigned int line_number);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
@@ -48,5 +49,7 @@ void pall(monty_stack_t **stack, unsigned int line_number);
 void pint(monty_stack_t **stack, unsigned int line_number);
 void pop(monty_stack_t **stack, unsigned int line_number);
 void swap(monty_stack_t **stack, unsigned int line_number);
+/* functions2 */
+void add(monty_stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
