@@ -34,7 +34,7 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"push", push}, {"pint", pint}, {"pop", pop}, {"nop", nop},
 		{"pall", pall}, {"swap", swap}, {"add", add}, {"div", _div},
-		{"sub", sub}, {"mul", mul}, {NULL, NULL}
+		{"sub", sub}, {"mul", mul}, {"mod", mod}, {NULL, NULL}
 	};
 
 	opcode = strtok(token, " \n\t");

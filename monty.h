@@ -55,5 +55,7 @@ void sub(monty_stack_t **stack, unsigned int line_number);
 void nop(monty_stack_t **stack, unsigned int line_number);
 void _div(monty_stack_t **stack, unsigned int line_number);
 void mul(monty_stack_t **stack, unsigned int line_number);
+/* functions3 */
+void mod(monty_stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
