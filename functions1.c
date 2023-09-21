@@ -32,7 +32,7 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 	char *opcode, *argument;
 
 	instruction_t opcodes[] = {
-		{"push", push},
+		{"push", push}, {"pint", pint},
 		{"pall", pall},
 		{NULL, NULL}
 	};
