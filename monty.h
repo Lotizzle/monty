@@ -1,8 +1,9 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -45,4 +46,4 @@ void push(monty_stack_t **stack, unsigned int line_number);
 void pall(monty_stack_t **stack, unsigned int line_number);
 
 
-#endif /*monty.h*/
+#endif /* MONTY_H */

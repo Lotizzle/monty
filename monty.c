@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		read = _getline(&token, &len, file);
-		if (read > 0)
+		if (read != -1)
 			execute(&stack, token, line_number);
 		else
 			free(token);

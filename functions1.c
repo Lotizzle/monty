@@ -77,13 +77,46 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
  */
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
-	ssize_t read;
+	const size_t chunk_size = 128;
+	char *buffer;
+	size_t cur_size = 0, i, total_size = 0;
+	int c;
 
-	read = getline(lineptr, n, stream);
-	if (read == -1)
+	if (*lineptr == NULL || *n == 0)
 	{
-		free(*lineptr);
-		exit(EXIT_SUCCESS);
+		*n = chunk_size;
+		*lineptr = malloc(*n);
 	}
-	return (read);
+	if (*lineptr == NULL)
+		return (-1);
+	buffer = *lineptr;
+	while (1)
+	{
+		c = fgetc(stream);
+		if (c == EOF)
+		{
+			if (total_size == 0 || ferror(stream))
+				return (-1);
+			break;
+		}
+		buffer[total_size++] = (char) c;
+		if (total_size >= *n)
+		{
+			cur_size = *n;
+			*n += chunk_size;
+			*lineptr = malloc(*n);
+			if (*lineptr == NULL)
+				return (-1);
+			for (i = 0; i < cur_size; ++i)
+				(*lineptr)[i] = buffer[i];
+			free(buffer);
+			buffer = *lineptr;
+		}
+		if (c == '\n')
+			break;
+	}
+	buffer[total_size] = '\0';
+	return (total_size);
 }
+
+
