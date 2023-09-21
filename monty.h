@@ -42,9 +42,11 @@ typedef struct instruction_s
 void free_stack(monty_stack_t *stack);
 void execute(monty_stack_t **stack, char *token, unsigned int line_number);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+/* functions0 */
 void push(monty_stack_t **stack, unsigned int line_number);
 void pall(monty_stack_t **stack, unsigned int line_number);
 void pint(monty_stack_t **stack, unsigned int line_number);
 void pop(monty_stack_t **stack, unsigned int line_number);
+void swap(monty_stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
