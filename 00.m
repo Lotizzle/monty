@@ -12,10 +12,9 @@ push 4
     push 5    
       push          6
     push 55   
-        push 63       
+        push 10       
       
-add
-add
+div
 pall
 
 
