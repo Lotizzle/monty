@@ -29,8 +29,7 @@ void free_stack(monty_stack_t *stack)
 void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 {
 	int i = 0;
-	char *opcode;
-	char *argument;
+	char *opcode, *argument;
 
 	instruction_t opcodes[] = {
 		{"push", push},
@@ -42,19 +41,21 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 
 	if (!opcode || opcode[0] == '#')
 		return;
-
 	argument = strtok(NULL, " \n\t");
 
-	if (opcode && strcmp(opcode, "push") == 0)
+	if (argument && strcmp(opcode, "push") == 0)
 	{
-		if (!argument || !isdigit(argument[0]))
+		if ((!argument || !isdigit(argument[0]))
+		&& (argument[0] == '-' && !isdigit(argument[1])))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-		argument_value = atoi(argument);
+		if (argument[0] == '-' && isdigit(argument[1]))
+			argument_value = atoi(argument + 1) * -1;
+		else
+			argument_value = atoi(argument);
 	}
-
 	while (opcodes[i].opcode != NULL)
 	{
 		if (strcmp(opcode, opcodes[i].opcode) == 0)
