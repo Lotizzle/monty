@@ -6,34 +6,26 @@
  * @line_number: line number
  * Return: void
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = malloc(sizeof(stack_t));
-	char *token = NULL;
-	int i = 0;
+	monty_stack_t *new_node;
+	extern int argument_value;
+	
+	(void)line_number;
 
-	if (new == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+    new_node = malloc(sizeof(monty_stack_t));
+    if (!new_node)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
 
-	token = strtok(NULL, " ");
-	while (token[i] != '\0')
-	{
-		if (isdigit(token[i]) == 0)
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-
-	new->n = atoi(token);
-	new->next = *stack;
-	new->prev = (*stack)->prev;
-	(*stack)->prev->next = new;
-	(*stack)->prev = new;
+    new_node->n = argument_value;
+    new_node->prev = NULL;
+    new_node->next = *stack;
+    if (*stack)
+        (*stack)->prev = new_node;
+    *stack = new_node;
 }
 
 /**
@@ -42,9 +34,9 @@ void push(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *current = (*stack)->next;
+	monty_stack_t *current = (*stack);
 
 	(void)line_number;
 

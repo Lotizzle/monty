@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -18,7 +20,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_t;
+} monty_stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -31,11 +33,13 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(monty_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
+void free_stack(monty_stack_t *stack);
+void execute(monty_stack_t **stack, char *token, unsigned int line_number);
+void push(monty_stack_t **stack, unsigned int line_number);
+void pall(monty_stack_t **stack, unsigned int line_number);
 
 
 #endif /*monty.h*/
