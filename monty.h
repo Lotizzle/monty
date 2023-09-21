@@ -6,6 +6,8 @@
 #include <string.h>
 #include <ctype.h>
 
+extern int argument_value;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,6 +40,7 @@ typedef struct instruction_s
 
 void free_stack(monty_stack_t *stack);
 void execute(monty_stack_t **stack, char *token, unsigned int line_number);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 void push(monty_stack_t **stack, unsigned int line_number);
 void pall(monty_stack_t **stack, unsigned int line_number);
 

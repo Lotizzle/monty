@@ -39,6 +39,10 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 	};
 
 	opcode = strtok(token, " \n\t");
+
+	if (!opcode || opcode[0] == '#')
+		return;
+
 	argument = strtok(NULL, " \n\t");
 
 	if (opcode && strcmp(opcode, "push") == 0)
@@ -64,4 +68,22 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * _getline - reads a line from a file
+ * @lineptr: pointer to the line
+ * @n: number of bytes
+ * @stream: pointer to the file
+ * Return: number of bytes read
+ */
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
+{
+	ssize_t read;
 
+	read = getline(lineptr, n, stream);
+	if (read == -1)
+	{
+		free(*lineptr);
+		exit(EXIT_SUCCESS);
+	}
+	return (read);
+}

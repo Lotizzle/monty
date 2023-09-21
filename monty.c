@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	while (read != -1)
 	{
 		line_number++;
-		read = getline(&token, &len, file);
+		read = _getline(&token, &len, file);
 		if (read > 0)
 			execute(&stack, token, line_number);
 		else

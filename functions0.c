@@ -9,7 +9,6 @@
 void push(monty_stack_t **stack, unsigned int line_number)
 {
 	monty_stack_t *new_node;
-	extern int argument_value;
 
 	(void)line_number;
 
@@ -42,7 +41,7 @@ void pall(monty_stack_t **stack, unsigned int line_number)
 
 	while (current != NULL)
 	{
-		printf("%d\n", current->n);
+		fprintf(stdout, "%d\n", current->n);
 		current = current->next;
 	}
 }
