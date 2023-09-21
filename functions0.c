@@ -61,3 +61,23 @@ void pint(monty_stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stdout, "%d\n", (*stack)->n);
 }
+
+/**
+ * pop - removes the top element of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ * Return: void
+ */
+void pop(monty_stack_t **stack, unsigned int line_number)
+{
+	monty_stack_t *temp;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	free(temp);
+}
