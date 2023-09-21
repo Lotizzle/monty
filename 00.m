@@ -14,7 +14,7 @@ push 4
     push 55   
         push 10       
       
-div
+mul
 pall
 
 
