@@ -43,18 +43,14 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 		return;
 	argument = strtok(NULL, " \n\t");
 
-	if (argument && strcmp(opcode, "push") == 0)
+	if (opcode && strcmp(opcode, "push") == 0)
 	{
-		if ((!argument || !isdigit(argument[0]))
-		&& (argument[0] == '-' && !isdigit(argument[1])))
+		if (!argument || !isdigit(argument[0]))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-		if (argument[0] == '-' && isdigit(argument[1]))
-			argument_value = atoi(argument + 1) * -1;
-		else
-			argument_value = atoi(argument);
+		argument_value = atoi(argument);
 	}
 	while (opcodes[i].opcode != NULL)
 	{
