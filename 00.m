@@ -1,21 +1,11 @@
+# push 5
+#push 6
+    #push 9
+    #push 8
+    #push 49
+pchar
+pchar
 
-
-
-
-push 5 
-push   2 
-   push 1       
-
-   
-           push 5
-push 4
-    push 5    
-      push          6
-    push 2   
-        push 10       
-      
-mod
-pall
 
 
 

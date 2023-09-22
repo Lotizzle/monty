@@ -57,7 +57,7 @@ void nop(monty_stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the top two elements of the stack
+ * _div - divides the top two elements of the stack
  * @stack: pointer to the stack
  * @line_number: line number
  * Return: void
