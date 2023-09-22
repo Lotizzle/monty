@@ -50,3 +50,25 @@ void pchar(monty_stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pstr - prints the string starting at the top of the stack
+ * @stack: pointer to the stack
+ * @line_number: line number
+ * Return: void
+ */
+void pstr(monty_stack_t **stack, unsigned int line_number)
+{
+	monty_stack_t *temp = *stack;
+
+	(void) line_number;
+
+	while (temp)
+	{
+		if (temp->n <= 0 || temp->n > 127)
+			break;
+		fprintf(stdout, "%c", temp->n);
+		temp = temp->next;
+	}
+	fprintf(stdout, "\n");
+}
