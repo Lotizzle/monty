@@ -60,5 +60,6 @@ void mod(monty_stack_t **stack, unsigned int line_number);
 void pchar(monty_stack_t **stack, unsigned int line_number);
 void pstr(monty_stack_t **stack, unsigned int line_number);
 void rotl(monty_stack_t **stack, unsigned int line_number);
+void rotr(monty_stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

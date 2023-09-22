@@ -11,7 +11,7 @@ push 111
 push 104
 push 99
 push 83
-rotl
+rotr
 pall
 
 

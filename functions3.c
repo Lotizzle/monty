@@ -99,3 +99,28 @@ void rotl(monty_stack_t **stack, unsigned int line_number)
 	temp->next = NULL;
 }
 
+/**
+ * rotr - rotates the stack to the bottom
+ * @stack: pointer to the stack
+ * @line_number: line number
+ * Return: void
+ */
+void rotr(monty_stack_t **stack, unsigned int line_number)
+{
+	monty_stack_t *temp = *stack, *last = *stack;
+
+	(void) line_number;
+
+	if (!(*stack) || !(*stack)->next)
+		return;
+
+	while (last->next)
+		last = last->next;
+
+	last->prev->next = NULL;
+	last->prev = NULL;
+	last->next = temp;
+	temp->prev = last;
+	*stack = last;
+}
+
