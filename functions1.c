@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_t globalvar;
+global_t globalvar = {0, "stack"};
 
 /**
  * free_stack - frees a stack
@@ -35,7 +35,7 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 		{"push", push}, {"pint", pint}, {"pop", pop}, {"nop", nop}, {"pstr", pstr},
 		{"pall", pall}, {"swap", swap}, {"add", add}, {"div", _div}, {"rotl", rotl},
 		{"sub", sub}, {"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"rotr", rotr},
-		{NULL, NULL}
+		{"queue", queue}, {"stack", _stack}, {NULL, NULL}
 	};
 
 	opcode = strtok(token, " \n\t");

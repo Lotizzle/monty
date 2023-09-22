@@ -8,7 +8,7 @@
  */
 void push(monty_stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *new_node;
+	monty_stack_t *new_node, *last;
 
 	(void)line_number;
 
@@ -21,10 +21,28 @@ void push(monty_stack_t **stack, unsigned int line_number)
 
 	new_node->n = globalvar.argument_value;
 	new_node->prev = NULL;
-	new_node->next = *stack;
-	if (*stack)
-		(*stack)->prev = new_node;
-	*stack = new_node;
+	new_node->next = NULL;
+
+	if (strcmp(globalvar.mode, "stack") == 0)
+	{
+		new_node->next = *stack;
+        if (*stack)
+            (*stack)->prev = new_node;
+        *stack = new_node;
+	}
+	else if (strcmp(globalvar.mode, "queue") == 0)
+	{
+		if (*stack == NULL)
+			*stack = new_node;
+		else
+		{
+			last = *stack;
+			while (last->next != NULL)
+				last = last->next;
+			last->next = new_node;
+			new_node->prev = last;
+		}
+	}
 }
 
 /**
