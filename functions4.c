@@ -1,17 +1,17 @@
 #include "monty.h"
 
 /**
- * stack - sets the format of the data to a stack (LIFO)
+ * _stack - sets the format of the data to a stack (LIFO)
  * @stack: pointer to the stack
  * @line_number: line number
  * Return: void
  */
-void _stack(monty_stack_t **stack, unsigned int line_number)
+void _stack(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 
-    globalvar.mode = "stack";
+	globalvar.mode = "stack";
 }
 
 /**
@@ -20,10 +20,10 @@ void _stack(monty_stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void queue(monty_stack_t **stack, unsigned int line_number)
+void queue(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 
-    globalvar.mode = "queue";
+	globalvar.mode = "queue";
 }

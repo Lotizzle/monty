@@ -6,9 +6,9 @@
  * @line_number: line number
  * Return: void
  */
-void add(monty_stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
@@ -28,9 +28,9 @@ void add(monty_stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void sub(monty_stack_t **stack, unsigned int line_number)
+void sub(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
@@ -50,7 +50,7 @@ void sub(monty_stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void nop(monty_stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
@@ -62,9 +62,9 @@ void nop(monty_stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void _div(monty_stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
@@ -90,9 +90,9 @@ void _div(monty_stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void mul(monty_stack_t **stack, unsigned int line_number)
+void mul(stack_t **stack, unsigned int line_number)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
