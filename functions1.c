@@ -45,7 +45,8 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 
 	if (opcode && strcmp(opcode, "push") == 0)
 	{
-		if (!argument || !isdigit(argument[0]))
+		if (!argument || ((argument[0] != '-' && !isdigit(argument[0])) ||
+			(argument[0] == '-' && !isdigit(argument[1]))))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
