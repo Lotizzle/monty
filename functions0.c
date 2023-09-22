@@ -19,7 +19,7 @@ void push(monty_stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = argument_value;
+	new_node->n = globalvar.argument_value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 	if (*stack)

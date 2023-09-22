@@ -7,8 +7,6 @@
 #include <string.h>
 #include <ctype.h>
 
-extern int argument_value;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,6 +37,20 @@ typedef struct instruction_s
 	void (*f)(monty_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global_s - global variables
+ * @argument_value: argument value
+ * @mode: mode
+ * Description: global variables
+ */
+typedef struct global_s
+{
+	int argument_value;
+	char *mode;
+} global_t;
+
+extern global_t globalvar;
+
 /* functions1 */
 void free_stack(monty_stack_t *stack);
 void execute(monty_stack_t **stack, char *token, unsigned int line_number);
@@ -61,5 +73,8 @@ void pchar(monty_stack_t **stack, unsigned int line_number);
 void pstr(monty_stack_t **stack, unsigned int line_number);
 void rotl(monty_stack_t **stack, unsigned int line_number);
 void rotr(monty_stack_t **stack, unsigned int line_number);
+/* functions4 */
+void stack(monty_stack_t **stack, unsigned int line_number);
+void queue(monty_stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

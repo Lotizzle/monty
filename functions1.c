@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int argument_value = 0;
+global_t globalvar;
 
 /**
  * free_stack - frees a stack
@@ -52,7 +52,7 @@ void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-		argument_value = atoi(argument);
+		globalvar.argument_value = atoi(argument);
 	}
 	while (opcodes[i].opcode != NULL)
 	{
