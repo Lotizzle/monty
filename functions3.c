@@ -72,3 +72,30 @@ void pstr(monty_stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stdout, "\n");
 }
+
+/**
+ * rotl - rotates the stack to the top
+ * @stack: pointer to the stack
+ * @line_number: line number
+ * Return: void
+ */
+void rotl(monty_stack_t **stack, unsigned int line_number)
+{
+	monty_stack_t *temp = *stack, *last = *stack;
+
+	(void) line_number;
+
+	if (!(*stack) || !(*stack)->next)
+		return;
+
+	while (last->next)
+		last = last->next;
+
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+
+	last->next = temp;
+	temp->prev = last;
+	temp->next = NULL;
+}
+
