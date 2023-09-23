@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: void
  */
-void _stack(stack_t **stack, unsigned int line_number)
+void _stack(monty_stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
@@ -20,7 +20,7 @@ void _stack(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void queue(stack_t **stack, unsigned int line_number)
+void queue(monty_stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;

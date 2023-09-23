@@ -6,9 +6,9 @@
  * @line_number: line number
  * Return: void
  */
-void mod(stack_t **stack, unsigned int line_number)
+void mod(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	monty_stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
@@ -34,7 +34,7 @@ void mod(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pchar(stack_t **stack, unsigned int line_number)
+void pchar(monty_stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -57,9 +57,9 @@ void pchar(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	monty_stack_t *temp = *stack;
 
 	(void) line_number;
 
@@ -79,9 +79,9 @@ void pstr(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void rotl(stack_t **stack, unsigned int line_number)
+void rotl(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack, *last = *stack;
+	monty_stack_t *temp = *stack, *last = *stack;
 
 	(void) line_number;
 
@@ -105,9 +105,9 @@ void rotl(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void rotr(stack_t **stack, unsigned int line_number)
+void rotr(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack, *last = *stack;
+	monty_stack_t *temp = *stack, *last = *stack;
 
 	(void) line_number;
 

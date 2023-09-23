@@ -7,9 +7,9 @@ global_t globalvar = {0, "stack"};
  * @stack: pointer to the stack
  * Return: void
  */
-void free_stack(stack_t *stack)
+void free_stack(monty_stack_t *stack)
 {
-	stack_t *temp;
+	monty_stack_t *temp;
 
 	while (stack != NULL)
 	{
@@ -26,11 +26,10 @@ void free_stack(stack_t *stack)
  * @line_number: line number
  * Return: void
  */
-void execute(stack_t **stack, char *token, unsigned int line_number)
+void execute(monty_stack_t **stack, char *token, unsigned int line_number)
 {
-	int i = 0;
+	int i = 0, flag;
 	char *opcode, *argument;
-
 	instruction_t opcodes[] = {
 		{"push", push}, {"pint", pint}, {"pop", pop}, {"nop", nop}, {"pstr", pstr},
 		{"pall", pall}, {"swap", swap}, {"add", add}, {"div", _div}, {"rotl", rotl},
@@ -39,15 +38,18 @@ void execute(stack_t **stack, char *token, unsigned int line_number)
 	};
 
 	opcode = strtok(token, " \n\t");
-
 	if (!opcode || opcode[0] == '#')
 		return;
 	argument = strtok(NULL, " \n\t");
-
 	if (opcode && strcmp(opcode, "push") == 0)
 	{
-		if (!argument || ((argument[0] != '-' && !isdigit(argument[0])) ||
-			(argument[0] == '-' && !isdigit(argument[1]))))
+		if (argument)
+		{
+			for (i = 1; argument[i] != '\0'; i++)
+				flag = (!isdigit(argument[i])) ? 1 : 0;
+			i = 0;
+		}
+		if (!argument || flag == 1 || (!isdigit(argument[0]) && argument[0] != '-'))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);

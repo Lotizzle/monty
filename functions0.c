@@ -6,13 +6,13 @@
  * @line_number: line number
  * Return: void
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node, *last;
+	monty_stack_t *new_node, *last;
 
 	(void)line_number;
 
-	new_node = malloc(sizeof(stack_t));
+	new_node = malloc(sizeof(monty_stack_t));
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -51,9 +51,9 @@ void push(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *current = (*stack);
+	monty_stack_t *current = (*stack);
 
 	(void)line_number;
 
@@ -70,7 +70,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pint(stack_t **stack, unsigned int line_number)
+void pint(monty_stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -86,9 +86,9 @@ void pint(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void pop(stack_t **stack, unsigned int line_number)
+void pop(monty_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	monty_stack_t *temp;
 
 	if (*stack == NULL)
 	{
@@ -106,7 +106,7 @@ void pop(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  * Return: void
  */
-void swap(stack_t **stack, unsigned int line_number)
+void swap(monty_stack_t **stack, unsigned int line_number)
 {
 	int temp;
 
