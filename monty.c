@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	monty_stack_t *stack = NULL;
+	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	ssize_t read = 0;
 	size_t len = 0;

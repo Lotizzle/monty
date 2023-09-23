@@ -7,9 +7,9 @@ global_t globalvar = {0, "stack"};
  * @stack: pointer to the stack
  * Return: void
  */
-void free_stack(monty_stack_t *stack)
+void free_stack(stack_t *stack)
 {
-	monty_stack_t *temp;
+	stack_t *temp;
 
 	while (stack != NULL)
 	{
@@ -26,7 +26,7 @@ void free_stack(monty_stack_t *stack)
  * @line_number: line number
  * Return: void
  */
-void execute(monty_stack_t **stack, char *token, unsigned int line_number)
+void execute(stack_t **stack, char *token, unsigned int line_number)
 {
 	int i = 0, flag;
 	char *opcode, *argument;
